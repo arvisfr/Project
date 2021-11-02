@@ -35,3 +35,9 @@ function scrollFunction() {
 btnToTop.addEventListener('click', () => {
   document.documentElement.scrollTop = 0;
 })
+
+$(function() {
+  $( ".photo" ).click(function() {
+    $( this ).closest(".photo").toggleClass( "is-flipped" );
+  });
+});
