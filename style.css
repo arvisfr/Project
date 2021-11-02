@@ -1,0 +1,268 @@
+body,
+button {
+  font-family: "Questrial", sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+}
+
+h1,
+h5,
+h6 {
+  font-weight: normal;
+  margin: 0;
+}
+
+h1 {
+  font-weight: bolder;
+  background-color: rgb(21, 133, 207);
+  color: rgb(145, 23, 2);
+  letter-spacing: 1rem;
+  border: 2px solid black;
+  padding: 15px;
+}
+
+#background {
+  background-image: url("images/landing.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  position: fixed;
+  z-index: 0;
+}
+
+#landing {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  position: relative;
+  z-index: 10;
+  -webkit-animation: intro-content 1.4s 0.1s;
+  animation: intro-content 1.4s 0.1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+#landing h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  -webkit-animation: intro-header 1s 0.1s;
+  animation: intro-header 1s 0.1s;
+}
+
+#landing button {
+  font-style: italic;
+  font-weight: 800;
+  opacity: 0.8;
+  color: #f6f8f5;
+  font-size: larger;
+  background-color: rgb(168, 31, 31);
+  padding: 2rem;
+  letter-spacing: 0.5rem;
+  border-radius: 20px;
+  margin-top: 0.875rem;
+}
+
+#landing button:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+#dimmed-background {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  background-color: rgba(20, 20, 20, 0.8);
+  top: 0;
+  left: 0;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
+  -webkit-transform: translateX(-120vw);
+  transform: translateX(-120vw);
+  visibility: hidden;
+}
+
+#full-site {
+  visibility: hidden;
+  overflow: hidden;
+  max-height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#footer {
+  color: white;
+  padding: 2.5rem 0;
+  background-color: rgba(13, 13, 13, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+#footer h5 {
+  font-size: 1.875rem;
+  margin: 1.875rem 0;
+}
+
+#footer hr {
+  width: 4%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-top: none;
+}
+
+#footer h6 {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: rgba(144, 215, 224, 0.212);
+}
+
+.photos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.photo-container {
+  text-align: center;
+  margin-right: 10px;
+  margin-bottom: 30px;
+}
+
+/* ---- Page Elements ---- */
+.photo-container img {
+  max-width: 100%;
+  position: relative;
+  z-index: 100;
+  height: auto;
+  max-width: 450px;
+  margin: 50px;
+  border-radius: 20px;
+  box-shadow: 10px 20px 30px rgb(161, 161, 224);
+}
+
+.photo {
+  position: relative;
+}
+
+/* ---- Photo Overlay ---- */
+.flipside {
+  color: #333;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding-right: 20px;
+}
+
+/***********************
+      3d transform
+  ************************/
+
+.photo-container {
+  perspective: 1100px;
+}
+
+.photo {
+  transition: transform 1.2s cubic-bezier(0.55, -0.6, 0.25, 1.2);
+  transform-style: preserve-3d;
+}
+
+.photo:hover {
+  transform: rotateY(180deg);
+}
+
+.side-front,
+.side-back {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.side-back {
+  transform: rotateY(-180deg);
+}
+
+@media only screen and (max-width: 600px) {
+  .photo-container img {
+    max-width: 350px;
+  }
+}
+.explain {
+  text-align: center;
+  font-size: 30px;
+  color: rgb(23, 39, 59);
+  position: sticky;
+  top: 2px;
+  display: none;
+  z-index: 1;
+}
+
+.btnToTop {
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 400ms cubic-bezier(0.335, 0.01, 0.03, 1.36);
+}
+
+.btnToTop p {
+  font-size: small;
+  margin-left: -10px;
+}
+
+.btnToTop:hover {
+  transform: scale(1.25);
+  transition-property: transform;
+  transition-duration: 500ms;
+}
+
+@media only screen and (max-width: 760px) {
+  .explain {
+    display: block;
+  }
+  .explain {
+    border: 2px solid rgba(0, 0, 0, 0.308);
+    border-radius: 20px;
+    padding: 20px;
+    color: rgba(41, 167, 167, 0.507);
+    background-color: rgba(22, 22, 148, 0.185);
+  }
+}
